@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "ReadSimple",
+  "description": "This extension simplifies the text displayed on a web page.",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "icons/1_Desktop_Icons/icon_032.png",
+    "default_title": "Read simple!"
+  },
+
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": ["lib/jquery.min.js", "lib/spin.min.js", "lib/notify.min.js", "js/content.js"],
+          "run_at": "document_end"
+      }
+  ],
+
+  "permissions": ["tabs", "<all_urls>"]
+}
